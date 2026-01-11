@@ -1,0 +1,40 @@
+Functional Requirements:
+Customer registration and authentication
+Restaurant Onboarding - images, csvs, documents might need to be uploaded which need to be verified by swiggy
+Delivery person onboarding
+Restaurant manages menu
+Nearby restaurants - proximity service
+Browse restaurants and menus
+Add items to the cart - Can we add items from multiple restaurants at the same time?
+Place orders
+Inventory Management
+Payment gateway integration
+Restaurant receives order
+Nearby delivery person - similar to cab booking service with some modifications
+Real-time order tracking
+Order history and reordering
+Rating and reviews for restaurants/dishes
+Push notifications for order status updates
+
+Non-functional requirement:
+Scalability, Consistency, High Availability, Low Latency,
+
+Capacity Estimation:
+Restaurants - 1 million, 100 new added every day, in 20 years newly added will be 0.73 million,
+Customers - 100 million, 10k/day, in 20 years 73 million,
+Search / Views - 100 million/day,
+
+APIs:
+GET getNearbyRestaurants(location, radius) : List<Restaurant> sorted by distance
+GET getMenus(restaurantId) : List<ItemDetails>
+POST addCart(restaurantId, itemId, quantity) : boolean
+POST placeOrder() : boolean
+GET getOrderStatus(orderId) : Status
+GET getPricing(orderId) : totalPrice
+GET getPricing(orderId, restaurantId) : totalPrice
+GET getPricing(orderId, restaurantId, itemId) : Price - It may be a discounted price so sending orderId and restaurantId as well.
+
+Order - orderId, List<RestaurantOrder>,
+RestaurantOrder - restaurantId, List<Item>,
+Item - itemId, quantity,
+

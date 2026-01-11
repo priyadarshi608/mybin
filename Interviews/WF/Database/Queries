@@ -1,0 +1,197 @@
+
+
+I have a query to retrieve a list of sales of a particular coffee-maker. It is running very slowly. What might be wrong? What might I be able to do to speed it up?
+
+```
+SELECT *
+FROM Sales AS s
+INNER JOIN SalesItems AS si ON s.ID = si.SaleID
+LEFT JOIN Employees AS e ON s.EmployeeName = e.Name
+WHERE si.ItemSku = ‘CFE01’;
+```
+
+TABLES:
+Sales - ID, CustomerID, EmployeeID, EmployeeName, TotalAmount, PurchasedDate, ...
+SalesItems - ID, SaleID, ItemSku, ItemQuantity, ItemAmount, ...
+Employees - ID, Name, Phone, Title, ...
+
+ANSWER:
+* We have EmployeeName in Sales table as well. Why do we have EmployeeName here when we already have EmployeeId here. And we are making join on the basis of EmployeeName instead of EmployeeId. Is this what we really want? What all fields we need from Employees table?
+* Why are we selecting ALL columns across all tables. What columns do we really want?
+* Do we have indexes in the table? To make this query faster, we should add indexes on SaleId column of SalesItems table, EmployeeName column of Sales table, Name column of Employees table and ItemSku column of SalesItems table.
+
+====================================================================================
+====================================================================================
+
+employees(id, first_name, last_name, salary, department_id);
+projects(id, title, start_date, end_date, budget);
+departments(id, name);
+employees_projects(project_id, employee_id);
+
+====================================================================================
+
+CREATE TABLE employees (
+id INT AUTO_INCREMENT PRIMARY KEY,
+first_name VARCHAR(255) DEFAULT NULL,
+last_name VARCHAR(255),
+salary INT,
+department_id INT DEFAULT NULL
+);
+
+CREATE TABLE projects (
+id INT AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(255),
+start_date DATE,
+end_date DATE,
+budget INT
+);
+
+CREATE TABLE departments (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255)
+);
+
+CREATE TABLE employees_projects (
+project_id INT,
+employee_id INT
+);
+
+INSERT INTO employees (first_name, last_name, salary, department_id) VALUES
+('John', 'Smith', 20000, 1),
+('Ava', 'Muffinson', 10000, 5),
+('Cailin', 'Ninson', 30000, 2),
+('Mike', 'Peterson', 20000, 2),
+('Ian', 'Peterson', 80000, 2),
+('John', 'Mills', 50000, 3),
+('Lewis', 'Brindley', 45000, NULL),
+(NULL, 'Lane', 55000, 3);
+
+INSERT INTO projects (title, start_date, end_date, budget) VALUES
+('Build a cool site', '2011-10-28', '2012-01-26', 1000000),
+('Update TPS Reports', '2011-07-20', '2011-10-28', 100000),
+('Design 3 New Silly Walks', '2009-05-11', '2009-08-19', 100);
+
+INSERT INTO departments (name) VALUES
+('Reporting'),
+('Engineering'),
+('Marketing'),
+('Biz Dev'),
+('Silly Walks');
+
+INSERT INTO employees_projects (project_id, employee_id) VALUES
+(2, 1),
+(3, 2),
+(1, 3),
+(1, 4),
+(1, 5);
+
+====================================================================================
+
+-- 1.) Fetch all employees that have a salary higher than 25000
+
+-- 2.) Get the number of employees in department 2
+
+-- 3.) Calculate the total salary cost for the company and return the minimum and maximum salary in the same query
+
+-- 4.) Write a query to list all department_ids that have employees, let the IDs be unique.
+
+-- 5.) Get the department_ids of all departments that have at least 2 employees.
+
+-- 6.) Get the title of the project that has the most employees assigned to it.
+
+-- 7.) Fetch the names of the employees that are not assigned to a department.
+
+-- 8.) Sometimes employees do not enter a first_name when they register. Rewrite your query from 7.) to use the last_name as first_name in case the first_name is NULL.
+
+-- 9.) Write a query that returns a count of all employees with salary < 50000, aggregated by 10000 increments. For example, 1 from 0-10000, 2 from 10000-20000, etc.
+
+-- 10.) Write a query that returns a list of all department names that do not have any employees.
+
+-- 11.) Write a query that returns the count of projects that employees worked on in 2011.
+
+-- 12.) Write a query to print employee_id, project_id and projects_count for all the employees who worked on any project in 2011. Also include those employees who didn't work on any project in 2011 but with count 0.
+
+------------------------------------------------------------------------------------
+
+1. select * from employees where salary > 25000;
+2. select * from employees where department_id = 2;
+3. select sum(salary), max(salary), min(salary) from employees;
+4. select distinct(department_id) from employees where department_id is not null;
+5. SELECT department_id FROM employees GROUP BY department_id HAVING COUNT(*) >= 2;
+6. SELECT p.title FROM projects p JOIN employees_projects ep ON p.id = ep.project_id GROUP BY p.id ORDER BY COUNT(ep.employee_id) DESC LIMIT 1;
+7. SELECT CONCAT(first_name, ' ', last_name) AS employee_name FROM employees WHERE department_id IS NULL;
+8. SELECT CONCAT(COALESCE(first_name, last_name), ' ', last_name) AS employee_name FROM employees WHERE department_id IS NULL;
+9. SELECT FLOOR(e.salary / 10000) * 10000 as salary_range, COUNT(*) as employee_count FROM employees e WHERE salary < 50000 GROUP BY salary_range ORDER BY salary_range;
+10. SELECT d.name AS department_name FROM departments d LEFT JOIN employees e ON d.id = e.department_id WHERE e.id IS NULL;
+11. SELECT COUNT(DISTINCT ep.project_id) AS projects_count FROM employees_projects ep JOIN projects p ON ep.project_id = p.id WHERE YEAR(p.start_date) = 2011;
+12. SELECT e.id AS employee_id, p.id AS project_id, COUNT(DISTINCT p.id) AS projects_count FROM employees e LEFT JOIN employees_projects ep ON e.id = ep.employee_id LEFT JOIN projects p ON ep.project_id = p.id AND YEAR(p.start_date) = 2011 GROUP BY e.id, p.id ORDER BY e.id, p.id;
+
+====================================================================================
+====================================================================================
+
+tblPriceType(Id, Name);
+tblProductPrice(Id, ProductName, PriceTypeId, PriceValue);
+
+====================================================================================
+
+CREATE TABLE `tblPriceType` (
+  `Id` int NOT NULL,
+  `Name` varchar(64) NOT NULL,
+  PRIMARY KEY (`Id`)
+);
+
+CREATE TABLE `tblProductPrice` (
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `ProductName` varchar(64) NOT NULL,
+  `PriceTypeId` int NOT NULL,
+  `PriceValue` decimal(19,4) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `PriceTypeId` (`PriceTypeId`),
+  CONSTRAINT `tblProductPrice_ibfk_1` FOREIGN KEY (`PriceTypeId`) REFERENCES `tblPriceType` (`Id`)
+);
+
+INSERT INTO tblPriceType (Id, Name) VALUES (1, 'Sale Price'), (2, 'List Price');
+
+INSERT INTO tblProductPrice (ProductName, PriceTypeId, PriceValue)
+VALUES ('Product A', 1, 119.99), ('Product A', 2, 150.00), ('Product B', 1, 24.99), ('Product B', 2, 29.99);
+
+1. Write a query that returns a list of all product prices such that the result should look like this -
++--------------+--------------+-------------+
+| ProductName  | PriceType    | PriceValue  |
++--------------+--------------+-------------+
+| Product A    | Sale Price   | 119.99      |
+| Product A    | List Price   | 150.00      |
+| Product B    | Sale Price   | 24.99       |
+| Product B    | List Price   | 29.99       |
++--------------+--------------+-------------+
+
+2. How do you pivot the above results such that the result view looks flat (like below)?
++--------------+-------------+-------------+
+| ProductName  | SalePrice   | ListPrice   |
++--------------+-------------+-------------+
+| Product A    | 119.99      | 150.00      |
+| Product B    | 24.55       | 29.99       |
++--------------+-------------+-------------+
+
+------------------------------------------------------------------------------------
+
+1. SELECT pp.ProductName, pt.Name AS PriceType, pp.PriceValue FROM tblProductPrice pp JOIN tblPriceType pt ON pp.PriceTypeId = pt.Id order by ProductName;
+
+2. 
+SELECT ProductName,
+  CASE WHEN PriceType = 'Sale Price' THEN PriceValue END AS SalePrice,
+  CASE WHEN PriceType = 'List Price' THEN PriceValue END AS ListPrice
+FROM (
+  SELECT pp.ProductName, pt.Name AS PriceType, pp.PriceValue FROM tblProductPrice pp JOIN tblPriceType pt ON pp.PriceTypeId = pt.Id
+) AS Source order by ProductName;
+
+SELECT ProductName,
+  MAX(CASE WHEN PriceType = 'Sale Price' THEN PriceValue END) AS SalePrice,
+  MAX(CASE WHEN PriceType = 'List Price' THEN PriceValue END) AS ListPrice
+FROM (
+  SELECT pp.ProductName, pt.Name AS PriceType, pp.PriceValue FROM tblProductPrice pp JOIN tblPriceType pt ON pp.PriceTypeId = pt.Id
+) AS Source
+GROUP BY ProductName order by ProductName;
+
+====================================================================================
+====================================================================================

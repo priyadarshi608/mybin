@@ -1,0 +1,31 @@
+I need object oriented design with database design for the following:
+
+We have a building with several floors, and a single elevator that runs
+between them. Design a system to run this elevator, thinking about the
+objects/classes we'd need, their properties and methods, and the
+interaction between them.
+
+## Expectations
+
+There are multiple ways to take this question - dig in to any that the
+candidate happens to be heading for and prompt them in other directions
+as time allows.
+
+Get the candidate to walk through the process of using an elevator (rider
+approaches, presses button which causes a change in state and some actions
+to happen) and build up their classes to support it.
+
+* Basics: Classes in the system include Elevator, Button, Doors and
+  some sort of controller object. The elevator has awareness of its
+  state and can react to a request.
+* Mechanics: The system includes awareness of the winch/hydraulic ram
+  that moves the elevator and some sort of detection of when an
+  elevator has arrived at a floor.
+* Request queue: The system can appropriately prioritize requests in
+  a queue (for up/down requests from each floor).
+* Special: The elevator could include a fire crew mode that overrides
+  everything, locked floors, weight limit, etc
+* Simulation: This isn't really part of the question as asked but makes
+  an interesting alternative - the system also simulates queue sizes of
+  people waiting for the elevator on different floors, has awareness of
+  their destinations, and handles moving them in and out of the elevator.

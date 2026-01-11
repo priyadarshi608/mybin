@@ -1,0 +1,31 @@
+2. Is there any upper cap on the number of users who can collaborate on one document? - say 100
+So different documents might have different number of users. For example one document might have just 1 user and other might have 100 users.
+As this is google doc, the users must be connected with the server via WEB SOCKET.
+So here I see the number of connections which we will need to manage as the major challenge. And we will load balance the system on the basis of number of connections with each server.
+If we are using http instead of web socket, then I will load balance on the basis of server load.
+
+And what if a server gets crashed? I will be persisting this document data and the NUMBER OF USERS some where in my system through EPHEMERAL QUEUES. If the server get's crashed, the clients will send another request for connection and the load balancer will connect the users with new server on the basis of number of connections it has. And the server will then fetch the data of the document and the NUMBER OF USERS from persistent storage. And all the subsequent users of the document will be connected to the same server.
+
+3 (a). Two main reasons to use eventual consistency here:
+First is, for certain types of metadata, such as view counts and ratings, occasional inconsistencies may be acceptable to users. Users might be more concerned with the overall trends rather than the precise real-time values.
+Second is that, we just have to respond within 20 ms, we should definitely go with eventual consistency as it allows for quicker response times, as it doesn't require waiting for all nodes to be immediately synchronized. If we will use strong consistency, then it won't allow read till all the nodes get synchronized.
+Then it will also help us scale the solution and make it HIGHLY AVAILABLE.
+Prioritizing eventual consistency increases the availability of the system. Even if some nodes are temporarily unreachable, the system can continue functioning and converge to a consistent state over time.
+
+3 (b). Can you please help me with the scalability requirement of the system?
+If we have a high scalability requirement, then strong consistency may introduce contention on write operations, as all nodes need to agree on the ORDER OF CLICKS in real-time. Eventual consistency allows for more relaxed coordination, reducing contention and enhancing write performance.
+And as this is for analytical purpose, so eventual consistency should be fine for this case as it don't need to be the 100% latest data I guess.
+
+3 (c). Financial transactions, such as deposits and payments, require strong consistency to ensure that each transaction is executed atomically and consistently. All nodes in the system should agree on the state of an account after a transaction.
+Strong consistency guarantees that any read operation after a write will return the most recent write. This is crucial for maintaining accurate and up-to-date account balances, preventing discrepancies that could arise from eventual consistency.
+
+4. I notice some of the important things here, for example:
+distributed system, 500 production servers, billions of documents,
+Means here the scale is very high.
+I see two challenges here:
+I need to find all the document IDs for which we have already sent the notification. I will need to store it somewhere in a data structure something like set.
+I will need to iterate all the document IDs from the DB and to check that whether it is present in the notification sent set or not.
+Now, how can I do this? As we have flat-file logs from 500 production servers, so we will need parallel processing of the log files to process it quickly. Map reduce process can help us in this. And while processing these files, I will store the document IDs in some sort of distributed set (based on hash).
+After creating the distributed set, I will iterate the database for the duration of the bug on the system. As we might have very large number of document IDs to iterate, we can use parallel processing here as well using multiple threads in different range and for each document ID, we will check in the distributed set that whether we have sent the notification for this document ID or not.
+
+5. On the TCP level (Web Socket) the tuple (source ip, source port, destination ip, destination port) must be unique for each simultaneous connection. So in practice the problem becomes one of resources such as CPU power, memory, etc. For example, let's say a single machine wants to support 64,000 simultaneous connections. If the server uses 1MB of RAM per connection, it would need 64GB of RAM. If each client needs to read a file, the disk or storage array access load becomes much larger than those devices can handle. If a server needs to fork one process per connection then the OS will spend the majority of its time context switching or starving processes for CPU time.

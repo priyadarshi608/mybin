@@ -1,0 +1,17 @@
+I need object oriented design with database design for the following:
+
+We are an e-commerce company. We’ve decided to build our own dispatching company, Therefore, we would like to see a basic design.
+Take into consideration that we have drivers, trucks (different sizes), packages, customers (b2b and b2c) and tasks to fulfill. Please describe the objects and the relationships between them.
+Eg. Truck is kind of a vehicle which has different sizes. A Task should have a relationship with customer and driver/deliviry man. A Task should also have a relationship with the b2b customer, Who ordered this delivery. An employee should have relationship with tasks and skills, What can he drive etc.
+
+### Extend 1
+We also want to track the tasks in real-time. What do you think we should add for this?
+
+### Extend 2
+Now we want the drivers to work in a certain radius from their homes. What will change?
+
+### Extend 3
+The different drivers/employees have different skills (not everyone can do anything). Describe a way to resolve this issue.
+
+### Extend 4
+Sometimes we will have to use third-party companies to help us with deliveries. How will this intergration look like?

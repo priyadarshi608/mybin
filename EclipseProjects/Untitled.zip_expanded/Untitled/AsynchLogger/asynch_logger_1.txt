@@ -1,0 +1,1 @@
+ClassName: AsynchFileLoggerDemo, Time: 1475398768908, Message: Write the 1st message to the file.

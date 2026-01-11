@@ -1,0 +1,43 @@
+We need to change or remove all of the phone numbers from our website because
+they're no longer in service and we now have a single customer service contact
+page. Given 50,000 HTML files in a UNIX directory structure, you have two days
+to come up with a list of all of the files that contain probable phone numbers
+in these two formats: (xxx) xxx-xxxx and xxx-xxx-xxxx. How do you do it?
+ASK CLARIFICATION QUESTIONS THAT IF WE JUST HAVE FILES FROM WHERE WE HAVE TO SEARCH THE PHONE NUMBERS, THEN WE CAN DO IT WITH grep COMMAND. IS THIS WHAT YOU ARE EXPECTING?
+grep -r -l -E '\([0-9]{3}\) [0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}' /path/to/directory/*.html
+-r: Recursively search subdirectories.
+-l: Only show the names of files containing the pattern.
+-E: Interpret the pattern as an extended regular expression.
+
+StockProfit
+
+largest-sum-contiguous-subarray (only Kadane's algorithm) - https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+
+Max product subarray (only Kadane's algorithm) - https://www.geeksforgeeks.org/maximum-product-subarray/
+
+DotProduct
+Parentheses
+
+LargeNumberSum
+LongestPalinSubstring
+PalindromeChecker
+
+SquareRoot
+MultipleSum
+DangerousNumbers
+LetterCounter
+
+TwoDMatrixSearch - TwoDMatrixSearch1's time complexity is better than TwoDMatrixSearch2's time complexity.
+
+TwoSumProblem - (Leave the last remainder approach) - https://www.geeksforgeeks.org/check-if-pair-with-given-sum-exists-in-array/
+
+BoxesAndTruck
+
+PrintAllPermutations - Anagrams
+Total number of permutations = n! / (n1!⋅n2!⋅…⋅nk!)
+- n! is the factorial of n, i.e., n × (n−1) × … × 2 × 1.
+- n1,n2,…,nk are the counts of each type of identical item.
+Time Complexity - O(N!), Space Complexity O(N),
+
+CodingTest1
+CodingTest2

@@ -1,0 +1,78 @@
+Class EntryTerminal (Orchestrator)
++ CarScanner, IDB, Printer, Lift,
+scanCarEventHandler(CarDetails) : void
+checkAvailability(CarDetails) : numberOfSpotsAvailable
+displayCarDetailsAndAvailability(carDetails, numberOfSpotsAvailable) : void
+confirmParking(CarDetails) : ParkingTicketDetails - event Handler of confirmParking button
+
+Class CarScanner
+scanCar() : CarDetails
+
+Class Printer
+printTicket(ParkingTicketDetails) : ParkingTicket
+
+Class IDB
+displayCarDetailsAndAvailability(carDetails, numberOfSpotsAvailable) : ConfirmButton or error message
+displayTarrif(amountToBePaid) : Pay button
+
+----
+
+class Lift
+parkCar(ParkingTicketDetails) : void
+bringCar(ParkingTicketDetails) : void
+
+====================================================================================
+
+Class ExitTerminal (Orchestrator)
++ TicketScanner, TarrifCalculator, PaymentProcessor, IDB, Lift,
+scanTicketEventHandler(ParkingTicketDetails) : void
+processPayment(amountToBePaid, PaymentProcessor) : boolean
+
+Class TicketScanner
+scanTicket() : ParkingTicketDetails
+
+Class TarrifCalculator
++ ParkingRate
+calculateTarrif(ParkingTicketDetails) : amountToBePaid
+
+Interface PaymentProcessor
+transact()
+
+====================================================================================
+
+Class ParkingLot
++ EntryTerminal, ExitTerminal, ParkingFloor, ParkingAssignmentStrategy,
+getTotalAvailability(CarDetails) : list of free ParkingSpotDetails
+getParkingSpotToAssignVehicle(CarDetails, list of free ParkingSpotDetails): ParkingSpot
+assignFloorSpotToVehicle(CarDetails, ParkingSpot)
+removeVehicleFromFloorSpot(ParkingTicketDetails)
+
+----
+
+Class ParkingFloor
++ floorNo, List<ParkingSpot>,
+getFloorAvailability(CarDetails) : list of free ParkingSpotDetails
+assignSpotToVehicle(CarDetails, ParkingSpot)
+removeVehicleFromSpot(ParkingTicketDetails)
+
+----
+
+Class ParkingSpot
++ parkingSpotId, type, parkingFloorNo,
+isFree() : boolean
+assignVehicle(CarDetails) : boolean
+removeVehicle() : boolean
+
+----
+
+Class ParkingAssignmentStrategy
++ SYNCHRONIZED getParkingSpotToAssignVehicle(CarDetails, list of free ParkingSpotDetails): ParkingSpot
+
+====================================================================================
+
+DB Tables:
+VehicleEntry - entryId, vehicleRegistrationNumber, vehicleSize, parkingSpotId, entryTime, exitTime, paymentId,
+Payment - paymentId, amount, paymentMode, paymentStatus,
+ParkingSpotType - id, name, description,
+ParkingFloor - id, name, description,
+ParkingSpot - id, parkingSpotTypeId, parkingFloorId, isFree,

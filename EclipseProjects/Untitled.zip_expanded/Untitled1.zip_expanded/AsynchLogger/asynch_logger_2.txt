@@ -1,0 +1,1 @@
+ClassName: AsynchFileLoggerDemo, Time: 1475398768908, Message: Write the 2nd message to the file.ClassName: AsynchFileLoggerDemo, Time: 1475398770908, Message: Write the 3rd message to the file.ClassName: AsynchFileLoggerDemo, Time: 1475398770908, Message: Write the 4th message to the file.

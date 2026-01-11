@@ -1,0 +1,117 @@
+while (i < n): i: 0, n: 7
+In if part......
+i: 0
+stack is empty.
+Pushing 0 in the stack
+new i: 1
+
+while (i < n): i: 1, n: 7
+In else part
+Stack: 0, 
+hist[tp]: 6
+stack is empty..
+i: 1
+area_with_top: 6
+
+while (i < n): i: 1, n: 7
+In if part......
+i: 1
+stack is empty.
+Pushing 1 in the stack
+new i: 2
+
+while (i < n): i: 2, n: 7
+In if part......
+i: 2
+Stack: 1, 
+hist[i]: 5
+s.top(): 1
+hist[s.top()]: 2
+Pushing 2 in the stack
+new i: 3
+
+while (i < n): i: 3, n: 7
+In else part
+Stack: 2, 1, 
+hist[tp]: 5
+stack is not empty..
+i: 3, s.top(): 1
+i - s.top() - 1: 1
+area_with_top: 5
+
+while (i < n): i: 3, n: 7
+In if part......
+i: 3
+Stack: 1, 
+hist[i]: 4
+s.top(): 1
+hist[s.top()]: 2
+Pushing 3 in the stack
+new i: 4
+
+while (i < n): i: 4, n: 7
+In if part......
+i: 4
+Stack: 3, 1, 
+hist[i]: 5
+s.top(): 3
+hist[s.top()]: 4
+Pushing 4 in the stack
+new i: 5
+
+while (i < n): i: 5, n: 7
+In else part
+Stack: 4, 3, 1, 
+hist[tp]: 5
+stack is not empty..
+i: 5, s.top(): 3
+i - s.top() - 1: 1
+area_with_top: 5
+
+while (i < n): i: 5, n: 7
+In else part
+Stack: 3, 1, 
+hist[tp]: 4
+stack is not empty..
+i: 5, s.top(): 1
+i - s.top() - 1: 3
+area_with_top: 12
+
+while (i < n): i: 5, n: 7
+In else part
+Stack: 1, 
+hist[tp]: 2
+stack is empty..
+i: 5
+area_with_top: 10
+
+while (i < n): i: 5, n: 7
+In if part......
+i: 5
+stack is empty.
+Pushing 5 in the stack
+new i: 6
+
+while (i < n): i: 6, n: 7
+In if part......
+i: 6
+Stack: 5, 
+hist[i]: 6
+s.top(): 5
+hist[s.top()]: 1
+Pushing 6 in the stack
+new i: 7
+
+In second while..
+Stack: 6, 5, 
+hist[tp]: 6
+i - s.top() - 1: 1
+area_with_top: 6
+
+In second while..
+Stack: 5, 
+hist[tp]: 1
+i: 7
+area_with_top: 7
+
+Maximum area is 12

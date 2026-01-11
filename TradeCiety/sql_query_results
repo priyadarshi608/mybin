@@ -1,0 +1,59 @@
+CREATE OR REPLACE VIEW ite AS
+SELECT 
+    t.id AS trade_id,
+    t.symbol,
+    t.entry_timestamp,
+    t.entry_price,
+    t.direction,
+    t.param_target,
+    t.target_price,
+    t.param_stoploss,
+    t.stoploss_price,
+    t.updated_stoploss_price,
+    t.exit_timestamp,
+    t.exit_price,
+    t.exit_strategy,
+    t.pnl,
+    t.ppnl,
+    t.notes,
+
+    -- Meta fields
+    m.id AS meta_id,
+    m.prevday_open,
+    m.prevday_high,
+    m.prevday_low,
+    m.prevday_close,
+    m.prevday_volume,
+    m.today_open,
+    m.today_high,
+    m.today_low,
+    m.today_close,
+    m.today_volume,
+    m.nifty_prev_open,
+    m.nifty_prev_high,
+    m.nifty_prev_low,
+    m.nifty_prev_close,
+    m.nifty_prev_volume,
+    m.nifty_today_open,
+    m.nifty_today_high,
+    m.nifty_today_low,
+    m.nifty_today_close,
+    m.atr,
+
+    -- 🔥 Derived fields
+    ((m.today_open - m.prevday_close) * 100.0 / m.prevday_close)
+        AS stock_opening_pct_change,
+
+    ((m.nifty_today_open - m.nifty_prev_close) * 100.0 / m.nifty_prev_close)
+        AS nifty_opening_pct_change,
+
+    -- You can continue adding many more derived columns here...
+    ((m.today_high - m.prevday_high) * 100.0 / m.prevday_high)
+        AS high_vs_prev_high_pct_change,
+
+    ((m.today_low - m.prevday_low) * 100.0 / m.prevday_low)
+        AS low_vs_prev_low_pct_change
+
+FROM intraday_trades t
+LEFT JOIN intraday_meta m
+    ON t.meta_id = m.id;

@@ -1,0 +1,126 @@
+car comes to entry designated area called entry terminal
+entry terminal - car scanner, interactive display board, printer, lift
+car scanner scans the car
+entry terminal display board - car details, availability, confirmation button,
+confirm - ticket is printed by printer
+lift will take the car and park in the alloted spot
+
+------------------------------------------------------------------------------------
+
+Class EntryTerminal
++ CarScanner, IDB, Printer, Lift,
+scanCarEventHandler(CarDetails) : void
+checkAvailability(CarDetails) : numberOfSpotsAvailable {
+	getTotalAvailability(CarDetails)
+	displayCarDetailsAndAvailability(carDetails, numberOfSpotsAvailable)
+}
+confirmParking(CarDetails) : ParkingTicketDetails {
+	getParkingSpotToAssignVehicle(CarDetails, list of free ParkingSpotDetails)
+	printTicket(ParkingTicketDetails)
+	parkCar(ParkingTicketDetails)
+	create entry in VehicleEntry table
+}
+
+----
+
+Class CarScanner
+scanCar() : CarDetails {
+	checkAvailability(CarDetails)
+}
+
+----
+
+Class Printer
+printTicket(ParkingTicketDetails) : ParkingTicket
+
+----
+
+Class IDB
+displayCarDetailsAndAvailability(carDetails, numberOfSpotsAvailable) : void - shows confirm button if numberOfSpotsAvailable > 0 else shows no parking available message - event handler of confirm button is confirmParking method of EntryTerminal class.
+displayTarrif(amountToBePaid) : void - shows Pay button - event handler of this pay button is processPayment method of ExitTerminal class.
+
+----
+
+class Lift
+parkCar(ParkingTicketDetails) : void
+bringCar(ParkingTicketDetails) : void
+
+====================================================================================
+
+person comes to exit designated area called exit terminal
+exit terminal - ticket scanner, display board, payment portal, lift,
+ticket scanner scans the ticket
+tarrif calculator calculates tarrif
+exit terminal display board - displays the tarrif, pay button,
+pay botton - forwards to payment portal for payment,
+lift will bring the car
+
+------------------------------------------------------------------------------------
+
+Class ExitTerminal
++ TicketScanner, TarrifCalculator, PaymentTransaction, IDB, Lift,
+scanTicketEventHandler(ParkingTicketDetails) : void
+processPayment(amountToBePaid, PaymentTransaction) : boolean {
+	transact(amountToBePaid)
+	removeVehicleFromFloorSpot(ParkingTicketDetails)
+	bringCar(ParkingTicketDetails) : void
+	create entry in Payment table and update VehicleEntry table
+}
+
+----
+
+Class TicketScanner
+scanTicket() : ParkingTicketDetails
+
+----
+
+Class TarrifCalculator
++ ParkingRate
+calculateTarrif(ParkingTicketDetails) : amountToBePaid
+
+----
+
+Interface PaymentTransaction
+transact()
+
+====================================================================================
+
+Class ParkingLot
++ EntryTerminal, ExitTerminal, ParkingFloor, ParkingAssignmentStrategy,
+getTotalAvailability(CarDetails) : list of free ParkingSpotDetails
+getParkingSpotToAssignVehicle(CarDetails, list of free ParkingSpotDetails): ParkingSpot {
+	SYNCHRONIZED getParkingSpotToAssignVehicle(list of free ParkingSpotDetails)
+}
+assignFloorSpotToVehicle(CarDetails, ParkingSpot)
+removeVehicleFromFloorSpot(ParkingTicketDetails)
+
+----
+
+Class ParkingFloor
++ floorNo, ParkingSpot,
+getFloorAvailability(CarDetails) : list of free ParkingSpotDetails
+assignSpotToVehicle(CarDetails, ParkingSpot)
+removeVehicleFromSpot(ParkingTicketDetails)
+
+----
+
+Class ParkingSpot
++ parkingSpotId, type, parkingFloor,
+isFree() : boolean
+assignVehicle(CarDetails) : boolean
+removeVehicle() : boolean
+
+----
+
+Class ParkingAssignmentStrategy
++ SYNCHRONIZED getParkingSpotToAssignVehicle(list of free ParkingSpotDetails): ParkingSpot
+
+====================================================================================
+
+DB Tables:
+VehicleEntry - entryId, vehicleRegistrationNumber, vehicleSize, parkingSpotId, entryTime, exitTime, paymentId,
+Payment - paymentId, amount, paymentMode, paymentStatus,
+ParkingSpotType - id, name, description
+ParkingFloor - id, name, parkingSpotTypeId, totalNumberOfParkingSpots,
+ParkingSpot - id, parkingSpotTypeId, parkingFloor, isFree,
+

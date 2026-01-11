@@ -1,0 +1,38 @@
+- The Art Gallery wishes to maintain data on their customers, artists and
+paintings. They may have several paintings by each artist in the gallery at one
+time.
+- Paintings may be bought and sold several times. In other words, the gallery may
+sell a painting, then buy it back at a later date and sell it to another
+customer.
+- Customers want to be able to look up paintings by type (i.e. impressionist, abstract, etc.). Subject matter can also be there.
+
+-------------------------------------------------------------------------------------
+
+Customers (CustomerID, EmailId, FirstName, LastName)
+Artists (ArtistID, ArtistName)
+Paintings (PaintingID, ArtistID, PaintingName, Type, SubjectMatter, isAvailable) - Add index on Type,
+Buybacks (BuybackID, PaintingID, CustomerId, BuybackDate, BuybackAmount)
+Sales (SaleID, CustomerID, PaintingID, SaleDate, SaleAmount)
+
+=====================================================================================
+
+Questions:
+* Write a query that returns all the paintings by Artist X sold between date 1
+  and date 2.
+* Write a query that returns the painting that has been sold the most.
+
+-------------------------------------------------------------------------------------
+
+SELECT Paintings.*
+FROM Paintings
+JOIN Sales ON Paintings.PaintingID = Sales.PaintingID
+JOIN Artists ON Paintings.ArtistID = Artists.ArtistID
+WHERE Artists.ArtistName = 'Artist X'
+  AND Sales.SaleDate BETWEEN 'date1' AND 'date2';
+
+SELECT Paintings.*, COUNT(Sales.PaintingID) AS SalesCount
+FROM Paintings
+JOIN Sales ON Paintings.PaintingID = Sales.PaintingID
+GROUP BY Paintings.PaintingID
+ORDER BY SalesCount DESC
+LIMIT 1;

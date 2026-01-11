@@ -1,0 +1,100 @@
+A company is starting an internal DVD lending service. All employees can list their DVDs on this service and borrow from each other. I may own several of one DVD, and someone else could own the same DVD as me. I want to keep track of who is lending which DVD to whom.
+Identify that there may be more than one identical DVD in the library, and separate data about films from data about the physical copy of the DVD.
+
+------------------------------------------------------------------------------------
+
+Employees (EmployeeID, EmailId, FirstName, LastName)
+DVDMovies (MovieID, Title, GenreID, ReleaseYear)
+Genres (GenreID, GenreName) - index on GenreName is good to have.
+DVDInstances (DVDInstanceID, MovieID, OwnerEmployeeId, CurrentEmployeeId)
+Transactions (TransactionID, DVDInstanceID, OwnerEmployeeID, BorrowerEmployeeID, BorrowDate, TentativeReturnDate, ActualReturnDate)
+
+====================================================================================
+
+Appropriate indices - look for forward thinking to identify how this data might reasonably be queried.
+
+------------------------------------------------------------------------------------
+
+We can add indices on the colmuns:
+- GenreName of Genres table,
+
+====================================================================================
+
+How can we filter DVDs by genre?
+I need all my DVDs back now, so I need a list of all the DVDs that are currently borrowed and who has them.
+I want to borrow a comedy to watch over the weekend.  Which comedy movies are available right now?
+We want to send a reminder email every day to the people who need to return DVDs. I need a list of everyone who has DVDs that are due today.
+How can we get the top ten movies (i.e. not physical DVDs) that are the most popular to borrow?
+
+------------------------------------------------------------------------------------
+
+1.
+SELECT DVDMovies.Title, Genres.GenreName
+FROM DVDMovies
+JOIN Genres ON DVDMovies.GenreID = Genres.GenreID
+WHERE Genres.GenreName = 'Action';
+
+2.
+SELECT
+    DVDMovies.Title,
+    Genres.GenreName,
+    Employees.FirstName AS OwnerFirstName,
+    Employees.LastName AS OwnerLastName,
+    Borrowers.FirstName AS BorrowerFirstName,
+    Borrowers.LastName AS BorrowerLastName,
+    Transactions.BorrowDate,
+    Transactions.TentativeReturnDate,
+    Transactions.ActualReturnDate
+FROM
+    DVDInstances
+JOIN Transactions ON DVDInstances.DVDInstanceID = Transactions.DVDInstanceID
+JOIN Employees AS Owners ON DVDInstances.OwnerEmployeeID = Owners.EmployeeID
+JOIN Employees AS Borrowers ON Transactions.BorrowerEmployeeID = Borrowers.EmployeeID
+JOIN DVDMovies ON DVDInstances.MovieID = DVDMovies.MovieID
+JOIN Genres ON DVDMovies.GenreID = Genres.GenreID
+WHERE
+    DVDInstances.CurrentEmployeeID IS NOT NULL;
+
+3.
+SELECT
+    DVDMovies.Title,
+    Employees.FirstName AS OwnerFirstName,
+    Employees.LastName AS OwnerLastName
+FROM
+    DVDInstances
+JOIN DVDMovies ON DVDInstances.MovieID = DVDMovies.MovieID
+JOIN Genres ON DVDMovies.GenreID = Genres.GenreID
+JOIN Employees ON DVDInstances.OwnerEmployeeID = Employees.EmployeeID
+WHERE
+    Genres.GenreName = 'Comedy'
+    AND DVDInstances.CurrentEmployeeID IS NULL;
+
+4.
+SELECT
+    Borrowers.FirstName AS BorrowerFirstName,
+    Borrowers.LastName AS BorrowerLastName,
+    DVDMovies.Title,
+    Transactions.TentativeReturnDate
+FROM
+    Transactions
+JOIN DVDInstances ON Transactions.DVDInstanceID = DVDInstances.DVDInstanceID
+JOIN Employees AS Borrowers ON Transactions.BorrowerEmployeeID = Borrowers.EmployeeID
+JOIN DVDMovies ON DVDInstances.MovieID = DVDMovies.MovieID
+WHERE
+    Transactions.TentativeReturnDate = CURDATE();
+
+5. (Grouping by GenreName can be removed.)
+SELECT
+    DVDMovies.Title,
+    Genres.GenreName,
+    COUNT(*) AS BorrowCount
+FROM
+    Transactions
+JOIN DVDInstances ON Transactions.DVDInstanceID = DVDInstances.DVDInstanceID
+JOIN DVDMovies ON DVDInstances.MovieID = DVDMovies.MovieID
+JOIN Genres ON DVDMovies.GenreID = Genres.GenreID
+GROUP BY
+    DVDMovies.Title, Genres.GenreName
+ORDER BY
+    BorrowCount DESC
+LIMIT 10;

@@ -1,0 +1,54 @@
+What is the structure of the returned shortened URL - tinyurl.com/abcd
+Will there be any expirationTime over this short url? - custom or default, then two things will be there:
+- I will need to use 302 explicitly,
+- if there is expiration time, then shortUrl created by two different persons for same longUrl will be different because we will need to expire them at different times.
+What if two people create shortUrl for same long url?
+  - my table structure will depend upon this. If we need to search for long url that whether it already exist or not, then i will need some efficient technique or indexing over long url column.
+shortUrls need to be created one by one only or multiple as well at a time?
+What will be the maximum size of the long URL? - 1000 or 2000 ch
+Do you need custom short url as well?
+
+Do we need API Rate Limiting for createShortUrl api?
+Do we need authentication for createShortUrl api?
+Number of their daily/monthly uses.
+Ratio of read and write.
+Growth in number of users per year?
+What is the availability goal for this system in terms of nines?
+Will this system be running world wide?
+
+structure, expirationTime, two people, multiple, maxSize, custom,
+internal or external, number of user, ratio, growth per year, availability goals, w,
+
+-------------------------------------------------------------------------------------
+
+## Operational Metrics ##
+What kind of monitoring would you want on your system during day to day
+operations?
+### Expectations ###
+* How long it takes to redirect to the long URL
+* How long it takes to generate a short URL
+* Webserver and database response times/health
+* Whatever they come up with!
+
+## Further Exploration ##
+* PR is now running a referral link contest, where customers want to get their
+  friends to click on one of these shortened links.  How do we change our system
+  to accommodate for this?
+  * We have a super famous celebrity who shared a shortened link, and now a
+    million customers have clicked on this link at once.  How do you see this
+    affecting the database as we try to record the click numbers?
+  * Expectation: we can't update the row that quickly - put the clicks in a queue
+* We now want our Business Intelligence team to run queries 24/7 against these
+  databases in order to get us data on which links are the most effective.  How
+  would you change your system to accommodate for this?
+  * Expectation: We will add debezium (for RDBMS) in side-car pattern to create a copy of the data just for Business Intelligence to query.
+* Along similar lines, how do we clean up links that never get
+  visited?
+  * Expectation:
+  - We can have clean-up service job which can run daily and clean-up the expired-short links.
+  - We can also have lazy clean-up where expiration time can be checked from the data of DB or cache when someone tries to access a short link and if it is expired, it is marked expired in DB, invalidated in cache and 404 (resource not found) can be returned to the user.
+    401 - unauthorized
+    402 - Payment Required
+    403 - Forbidden
+    404 - resource not found
+  - We can also have intelligent clean-up service which can delete only those links which were not used from last one year or two year or so. For that, we will also need last-accessed time in the DB. It is not possible to updated the DB table after every hit. We will need some queue kind of thing and other tables and we can update the main DB once or twice in a day for the last-accessed time.

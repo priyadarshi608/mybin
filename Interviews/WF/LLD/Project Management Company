@@ -1,0 +1,16 @@
+I need object oriented design with database design for the following:
+
+A *Property Management Company* decided to write their own software.
+The company manages today different types of properties eg. residential, commercial, parks etc
+A `residential building` is a type of a `building` that has multiple tenants,The Tenants live in different apartments and pay different amount of rent.
+A `commercial`building is a type of a `building` but itdoesn’t have tenants it has one owner.
+The management company is in charge of the following:
+1. Maintenance (cleaning, fixing, adding new request)
+2. Collecting money (if its residential it will be rent, park entrance fee)
+3. Paying bills
+
+### Extend 1
+The company would like to manage the hiring process through the software. What should be changed for this?
+
+### Extend 2
+The company wants to allow building owners and tenants to have different permissions for editing certain data. What should be changed for this?

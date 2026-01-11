@@ -1,0 +1,220 @@
+2025-10-19 01:25:15,665 - INFO - Connecting to MySQL database 'market'
+2025-10-19 01:25:15,670 - INFO - Database connection established
+2025-10-19 01:25:15,670 - INFO - Fetching data from daily_trades for AXISBANK
+2025-10-19 01:25:15,765 - INFO - Retrieved 61 trades
+2025-10-19 01:25:15,767 - INFO - Processed daily_trades data
+2025-10-19 01:25:15,768 - INFO - Added loss labels
+2025-10-19 01:25:15,768 - INFO - Starting feature engineering for pre-position classifier
+2025-10-19 01:25:15,770 - WARNING - Insufficient past data for AXISBANK on 2021-07-13: 0 days
+2025-10-19 01:25:15,771 - WARNING - Insufficient past data for AXISBANK on 2021-08-03: 0 days
+2025-10-19 01:25:15,773 - WARNING - Insufficient past data for AXISBANK on 2021-08-04: 0 days
+2025-10-19 01:25:15,775 - WARNING - Insufficient past data for AXISBANK on 2021-08-30: 0 days
+2025-10-19 01:25:15,776 - WARNING - Insufficient past data for AXISBANK on 2021-09-01: 0 days
+2025-10-19 01:25:15,777 - WARNING - Insufficient past data for AXISBANK on 2021-10-25: 0 days
+2025-10-19 01:25:15,778 - WARNING - Insufficient past data for AXISBANK on 2021-12-13: 0 days
+2025-10-19 01:25:15,779 - WARNING - Insufficient past data for AXISBANK on 2021-12-31: 0 days
+2025-10-19 01:25:15,781 - WARNING - Insufficient past data for AXISBANK on 2022-01-04: 0 days
+2025-10-19 01:25:15,782 - WARNING - Insufficient past data for AXISBANK on 2022-01-05: 0 days
+2025-10-19 01:25:15,783 - WARNING - Insufficient past data for AXISBANK on 2022-01-18: 0 days
+2025-10-19 01:25:15,784 - WARNING - Insufficient past data for AXISBANK on 2022-03-10: 0 days
+2025-10-19 01:25:15,786 - WARNING - Insufficient past data for AXISBANK on 2022-03-17: 0 days
+2025-10-19 01:25:15,787 - WARNING - Insufficient past data for AXISBANK on 2022-03-30: 0 days
+2025-10-19 01:25:15,788 - WARNING - Insufficient past data for AXISBANK on 2022-05-27: 0 days
+2025-10-19 01:25:15,789 - WARNING - Insufficient past data for AXISBANK on 2022-07-18: 0 days
+2025-10-19 01:25:15,790 - WARNING - Insufficient past data for AXISBANK on 2022-07-19: 0 days
+2025-10-19 01:25:15,791 - WARNING - Insufficient past data for AXISBANK on 2022-07-20: 0 days
+2025-10-19 01:25:15,793 - WARNING - Insufficient past data for AXISBANK on 2022-07-22: 0 days
+2025-10-19 01:25:15,794 - WARNING - Insufficient past data for AXISBANK on 2022-07-25: 0 days
+2025-10-19 01:25:15,795 - WARNING - Insufficient past data for AXISBANK on 2022-08-11: 0 days
+2025-10-19 01:25:15,796 - WARNING - Insufficient past data for AXISBANK on 2022-09-08: 0 days
+2025-10-19 01:25:15,797 - WARNING - Insufficient past data for AXISBANK on 2022-09-09: 0 days
+2025-10-19 01:25:15,798 - WARNING - Insufficient past data for AXISBANK on 2022-10-11: 0 days
+2025-10-19 01:25:15,799 - WARNING - Insufficient past data for AXISBANK on 2022-10-21: 0 days
+2025-10-19 01:25:15,800 - WARNING - Insufficient past data for AXISBANK on 2022-11-25: 0 days
+2025-10-19 01:25:15,801 - WARNING - Insufficient past data for AXISBANK on 2022-12-08: 0 days
+2025-10-19 01:25:15,802 - WARNING - Insufficient past data for AXISBANK on 2023-03-31: 0 days
+2025-10-19 01:25:15,803 - WARNING - Insufficient past data for AXISBANK on 2023-04-17: 0 days
+2025-10-19 01:25:15,804 - WARNING - Insufficient past data for AXISBANK on 2023-04-25: 0 days
+2025-10-19 01:25:15,805 - WARNING - Insufficient past data for AXISBANK on 2023-05-05: 0 days
+2025-10-19 01:25:15,806 - WARNING - Insufficient past data for AXISBANK on 2023-05-12: 0 days
+2025-10-19 01:25:15,807 - WARNING - Insufficient past data for AXISBANK on 2023-06-05: 0 days
+2025-10-19 01:25:15,808 - WARNING - Insufficient past data for AXISBANK on 2023-06-07: 0 days
+2025-10-19 01:25:15,809 - WARNING - Insufficient past data for AXISBANK on 2023-07-18: 0 days
+2025-10-19 01:25:15,810 - WARNING - Insufficient past data for AXISBANK on 2023-08-23: 0 days
+2025-10-19 01:25:15,811 - WARNING - Insufficient past data for AXISBANK on 2023-08-24: 0 days
+2025-10-19 01:25:15,812 - WARNING - Insufficient past data for AXISBANK on 2023-09-11: 0 days
+2025-10-19 01:25:15,813 - WARNING - Insufficient past data for AXISBANK on 2023-09-12: 0 days
+2025-10-19 01:25:15,814 - WARNING - Insufficient past data for AXISBANK on 2023-10-27: 0 days
+2025-10-19 01:25:15,816 - WARNING - Insufficient past data for AXISBANK on 2023-11-06: 0 days
+2025-10-19 01:25:15,817 - WARNING - Insufficient past data for AXISBANK on 2023-11-29: 0 days
+2025-10-19 01:25:15,818 - WARNING - Insufficient past data for AXISBANK on 2023-11-30: 0 days
+2025-10-19 01:25:15,819 - WARNING - Insufficient past data for AXISBANK on 2023-12-04: 0 days
+2025-10-19 01:25:15,820 - WARNING - Insufficient past data for AXISBANK on 2023-12-05: 0 days
+2025-10-19 01:25:15,821 - WARNING - Insufficient past data for AXISBANK on 2024-04-25: 0 days
+2025-10-19 01:25:15,822 - WARNING - Insufficient past data for AXISBANK on 2024-06-03: 0 days
+2025-10-19 01:25:15,823 - WARNING - Insufficient past data for AXISBANK on 2024-06-19: 0 days
+2025-10-19 01:25:15,824 - WARNING - Insufficient past data for AXISBANK on 2024-06-25: 0 days
+2025-10-19 01:25:15,825 - WARNING - Insufficient past data for AXISBANK on 2024-07-12: 0 days
+2025-10-19 01:25:15,826 - WARNING - Insufficient past data for AXISBANK on 2024-10-18: 0 days
+2025-10-19 01:25:15,828 - WARNING - Insufficient past data for AXISBANK on 2024-10-25: 0 days
+2025-10-19 01:25:15,829 - WARNING - Insufficient past data for AXISBANK on 2025-02-01: 0 days
+2025-10-19 01:25:15,830 - WARNING - Insufficient past data for AXISBANK on 2025-03-17: 0 days
+2025-10-19 01:25:15,831 - WARNING - Insufficient past data for AXISBANK on 2025-03-18: 0 days
+2025-10-19 01:25:15,832 - WARNING - Insufficient past data for AXISBANK on 2025-03-24: 0 days
+2025-10-19 01:25:15,833 - WARNING - Insufficient past data for AXISBANK on 2025-04-15: 0 days
+2025-10-19 01:25:15,834 - WARNING - Insufficient past data for AXISBANK on 2025-04-16: 0 days
+2025-10-19 01:25:15,835 - WARNING - Insufficient past data for AXISBANK on 2025-04-17: 0 days
+2025-10-19 01:25:15,837 - WARNING - Insufficient past data for AXISBANK on 2025-04-21: 0 days
+2025-10-19 01:25:15,838 - WARNING - Insufficient past data for AXISBANK on 2025-05-12: 0 days
+2025-10-19 01:25:15,840 - INFO - Filtered 0 valid trades after feature engineering
+2025-10-19 01:25:15,840 - INFO - Data split: 0 train, 0 test
+2025-10-19 01:25:15,841 - INFO - Training RandomForestClassifier
+2025-10-19 01:25:15,841 - ERROR - Error during execution: Found array with 0 sample(s) (shape=(0, 6)) while a minimum of 1 is required by RandomForestClassifier.
+2025-10-19 01:25:15,841 - INFO - Closing database connection
+2025-10-19 01:45:27,061 - INFO - Connecting to MySQL database 'market'
+2025-10-19 01:45:27,066 - INFO - Database connection established
+2025-10-19 01:45:27,066 - INFO - Fetching data from daily_trades for AXISBANK
+2025-10-19 01:45:27,134 - INFO - Retrieved 61 trades
+2025-10-19 01:45:27,136 - INFO - Processed daily_trades data
+2025-10-19 01:45:27,170 - INFO - Added loss labels
+2025-10-19 01:45:27,171 - INFO - Starting feature engineering for pre-position classifier
+2025-10-19 01:45:27,176 - WARNING - Insufficient past data for AXISBANK on 2021-07-13: 0 days
+2025-10-19 01:45:27,179 - WARNING - Insufficient past data for AXISBANK on 2021-08-03: 0 days
+2025-10-19 01:45:27,182 - WARNING - Insufficient past data for AXISBANK on 2021-08-04: 0 days
+2025-10-19 01:45:27,184 - WARNING - Insufficient past data for AXISBANK on 2021-08-30: 0 days
+2025-10-19 01:45:27,186 - WARNING - Insufficient past data for AXISBANK on 2021-09-01: 0 days
+2025-10-19 01:45:27,188 - WARNING - Insufficient past data for AXISBANK on 2021-10-25: 0 days
+2025-10-19 01:45:27,190 - WARNING - Insufficient past data for AXISBANK on 2021-12-13: 0 days
+2025-10-19 01:45:27,191 - WARNING - Insufficient past data for AXISBANK on 2021-12-31: 0 days
+2025-10-19 01:45:27,193 - WARNING - Insufficient past data for AXISBANK on 2022-01-04: 0 days
+2025-10-19 01:45:27,194 - WARNING - Insufficient past data for AXISBANK on 2022-01-05: 0 days
+2025-10-19 01:45:27,195 - WARNING - Insufficient past data for AXISBANK on 2022-01-18: 0 days
+2025-10-19 01:45:27,197 - WARNING - Insufficient past data for AXISBANK on 2022-03-10: 0 days
+2025-10-19 01:45:27,198 - WARNING - Insufficient past data for AXISBANK on 2022-03-17: 0 days
+2025-10-19 01:45:27,199 - WARNING - Insufficient past data for AXISBANK on 2022-03-30: 0 days
+2025-10-19 01:45:27,200 - WARNING - Insufficient past data for AXISBANK on 2022-05-27: 0 days
+2025-10-19 01:45:27,201 - WARNING - Insufficient past data for AXISBANK on 2022-07-18: 0 days
+2025-10-19 01:45:27,202 - WARNING - Insufficient past data for AXISBANK on 2022-07-19: 0 days
+2025-10-19 01:45:27,204 - WARNING - Insufficient past data for AXISBANK on 2022-07-20: 0 days
+2025-10-19 01:45:27,205 - WARNING - Insufficient past data for AXISBANK on 2022-07-22: 0 days
+2025-10-19 01:45:27,206 - WARNING - Insufficient past data for AXISBANK on 2022-07-25: 0 days
+2025-10-19 01:45:27,207 - WARNING - Insufficient past data for AXISBANK on 2022-08-11: 0 days
+2025-10-19 01:45:27,208 - WARNING - Insufficient past data for AXISBANK on 2022-09-08: 0 days
+2025-10-19 01:45:27,209 - WARNING - Insufficient past data for AXISBANK on 2022-09-09: 0 days
+2025-10-19 01:45:27,211 - WARNING - Insufficient past data for AXISBANK on 2022-10-11: 0 days
+2025-10-19 01:45:27,212 - WARNING - Insufficient past data for AXISBANK on 2022-10-21: 0 days
+2025-10-19 01:45:27,213 - WARNING - Insufficient past data for AXISBANK on 2022-11-25: 0 days
+2025-10-19 01:45:27,214 - WARNING - Insufficient past data for AXISBANK on 2022-12-08: 0 days
+2025-10-19 01:45:27,216 - WARNING - Insufficient past data for AXISBANK on 2023-03-31: 0 days
+2025-10-19 01:45:27,217 - WARNING - Insufficient past data for AXISBANK on 2023-04-17: 0 days
+2025-10-19 01:45:27,218 - WARNING - Insufficient past data for AXISBANK on 2023-04-25: 0 days
+2025-10-19 01:45:27,220 - WARNING - Insufficient past data for AXISBANK on 2023-05-05: 0 days
+2025-10-19 01:45:27,221 - WARNING - Insufficient past data for AXISBANK on 2023-05-12: 0 days
+2025-10-19 01:45:27,223 - WARNING - Insufficient past data for AXISBANK on 2023-06-05: 0 days
+2025-10-19 01:45:27,224 - WARNING - Insufficient past data for AXISBANK on 2023-06-07: 0 days
+2025-10-19 01:45:27,225 - WARNING - Insufficient past data for AXISBANK on 2023-07-18: 0 days
+2025-10-19 01:45:27,227 - WARNING - Insufficient past data for AXISBANK on 2023-08-23: 0 days
+2025-10-19 01:45:27,228 - WARNING - Insufficient past data for AXISBANK on 2023-08-24: 0 days
+2025-10-19 01:45:27,229 - WARNING - Insufficient past data for AXISBANK on 2023-09-11: 0 days
+2025-10-19 01:45:27,231 - WARNING - Insufficient past data for AXISBANK on 2023-09-12: 0 days
+2025-10-19 01:45:27,232 - WARNING - Insufficient past data for AXISBANK on 2023-10-27: 0 days
+2025-10-19 01:45:27,233 - WARNING - Insufficient past data for AXISBANK on 2023-11-06: 0 days
+2025-10-19 01:45:27,235 - WARNING - Insufficient past data for AXISBANK on 2023-11-29: 0 days
+2025-10-19 01:45:27,236 - WARNING - Insufficient past data for AXISBANK on 2023-11-30: 0 days
+2025-10-19 01:45:27,237 - WARNING - Insufficient past data for AXISBANK on 2023-12-04: 0 days
+2025-10-19 01:45:27,238 - WARNING - Insufficient past data for AXISBANK on 2023-12-05: 0 days
+2025-10-19 01:45:27,239 - WARNING - Insufficient past data for AXISBANK on 2024-04-25: 0 days
+2025-10-19 01:45:27,241 - WARNING - Insufficient past data for AXISBANK on 2024-06-03: 0 days
+2025-10-19 01:45:27,242 - WARNING - Insufficient past data for AXISBANK on 2024-06-19: 0 days
+2025-10-19 01:45:27,243 - WARNING - Insufficient past data for AXISBANK on 2024-06-25: 0 days
+2025-10-19 01:45:27,244 - WARNING - Insufficient past data for AXISBANK on 2024-07-12: 0 days
+2025-10-19 01:45:27,245 - WARNING - Insufficient past data for AXISBANK on 2024-10-18: 0 days
+2025-10-19 01:45:27,247 - WARNING - Insufficient past data for AXISBANK on 2024-10-25: 0 days
+2025-10-19 01:45:27,248 - WARNING - Insufficient past data for AXISBANK on 2025-02-01: 0 days
+2025-10-19 01:45:27,249 - WARNING - Insufficient past data for AXISBANK on 2025-03-17: 0 days
+2025-10-19 01:45:27,251 - WARNING - Insufficient past data for AXISBANK on 2025-03-18: 0 days
+2025-10-19 01:45:27,252 - WARNING - Insufficient past data for AXISBANK on 2025-03-24: 0 days
+2025-10-19 01:45:27,253 - WARNING - Insufficient past data for AXISBANK on 2025-04-15: 0 days
+2025-10-19 01:45:27,254 - WARNING - Insufficient past data for AXISBANK on 2025-04-16: 0 days
+2025-10-19 01:45:27,256 - WARNING - Insufficient past data for AXISBANK on 2025-04-17: 0 days
+2025-10-19 01:45:27,257 - WARNING - Insufficient past data for AXISBANK on 2025-04-21: 0 days
+2025-10-19 01:45:27,258 - WARNING - Insufficient past data for AXISBANK on 2025-05-12: 0 days
+2025-10-19 01:45:27,259 - INFO - Filtered 0 valid trades after feature engineering
+2025-10-19 01:45:27,260 - INFO - Data split: 0 train, 0 test
+2025-10-19 01:45:27,260 - INFO - Training RandomForestClassifier
+2025-10-19 01:45:27,260 - ERROR - Error during execution: Found array with 0 sample(s) (shape=(0, 6)) while a minimum of 1 is required by RandomForestClassifier.
+2025-10-19 01:45:27,261 - INFO - Closing database connection
+2025-10-19 01:50:06,110 - INFO - Connecting to MySQL database 'market'
+2025-10-19 01:50:06,162 - INFO - Database connection established
+2025-10-19 01:50:06,162 - INFO - Inspecting market_data table
+2025-10-19 01:50:06,163 - INFO - Found 0 rows for AXISBANK with duration='1d' in market_data
+2025-10-19 01:50:06,163 - INFO - AXISBANK data date range: (None, None)
+2025-10-19 01:50:06,163 - INFO - Fetching data from daily_trades for AXISBANK
+2025-10-19 01:50:06,175 - INFO - Retrieved 61 trades
+2025-10-19 01:50:06,176 - INFO - Processed daily_trades data
+2025-10-19 01:50:06,177 - INFO - Added loss labels
+2025-10-19 01:50:06,177 - INFO - Starting feature engineering for pre-position classifier
+2025-10-19 01:50:06,179 - WARNING - Insufficient past data for AXISBANK on 2021-07-13: 0 days, minimum required: 10
+2025-10-19 01:50:06,181 - WARNING - Insufficient past data for AXISBANK on 2021-08-03: 0 days, minimum required: 10
+2025-10-19 01:50:06,183 - WARNING - Insufficient past data for AXISBANK on 2021-08-04: 0 days, minimum required: 10
+2025-10-19 01:50:06,185 - WARNING - Insufficient past data for AXISBANK on 2021-08-30: 0 days, minimum required: 10
+2025-10-19 01:50:06,187 - WARNING - Insufficient past data for AXISBANK on 2021-09-01: 0 days, minimum required: 10
+2025-10-19 01:50:06,189 - WARNING - Insufficient past data for AXISBANK on 2021-10-25: 0 days, minimum required: 10
+2025-10-19 01:50:06,190 - WARNING - Insufficient past data for AXISBANK on 2021-12-13: 0 days, minimum required: 10
+2025-10-19 01:50:06,192 - WARNING - Insufficient past data for AXISBANK on 2021-12-31: 0 days, minimum required: 10
+2025-10-19 01:50:06,193 - WARNING - Insufficient past data for AXISBANK on 2022-01-04: 0 days, minimum required: 10
+2025-10-19 01:50:06,195 - WARNING - Insufficient past data for AXISBANK on 2022-01-05: 0 days, minimum required: 10
+2025-10-19 01:50:06,196 - WARNING - Insufficient past data for AXISBANK on 2022-01-18: 0 days, minimum required: 10
+2025-10-19 01:50:06,198 - WARNING - Insufficient past data for AXISBANK on 2022-03-10: 0 days, minimum required: 10
+2025-10-19 01:50:06,199 - WARNING - Insufficient past data for AXISBANK on 2022-03-17: 0 days, minimum required: 10
+2025-10-19 01:50:06,201 - WARNING - Insufficient past data for AXISBANK on 2022-03-30: 0 days, minimum required: 10
+2025-10-19 01:50:06,203 - WARNING - Insufficient past data for AXISBANK on 2022-05-27: 0 days, minimum required: 10
+2025-10-19 01:50:06,205 - WARNING - Insufficient past data for AXISBANK on 2022-07-18: 0 days, minimum required: 10
+2025-10-19 01:50:06,207 - WARNING - Insufficient past data for AXISBANK on 2022-07-19: 0 days, minimum required: 10
+2025-10-19 01:50:06,209 - WARNING - Insufficient past data for AXISBANK on 2022-07-20: 0 days, minimum required: 10
+2025-10-19 01:50:06,211 - WARNING - Insufficient past data for AXISBANK on 2022-07-22: 0 days, minimum required: 10
+2025-10-19 01:50:06,213 - WARNING - Insufficient past data for AXISBANK on 2022-07-25: 0 days, minimum required: 10
+2025-10-19 01:50:06,214 - WARNING - Insufficient past data for AXISBANK on 2022-08-11: 0 days, minimum required: 10
+2025-10-19 01:50:06,216 - WARNING - Insufficient past data for AXISBANK on 2022-09-08: 0 days, minimum required: 10
+2025-10-19 01:50:06,217 - WARNING - Insufficient past data for AXISBANK on 2022-09-09: 0 days, minimum required: 10
+2025-10-19 01:50:06,219 - WARNING - Insufficient past data for AXISBANK on 2022-10-11: 0 days, minimum required: 10
+2025-10-19 01:50:06,221 - WARNING - Insufficient past data for AXISBANK on 2022-10-21: 0 days, minimum required: 10
+2025-10-19 01:50:06,223 - WARNING - Insufficient past data for AXISBANK on 2022-11-25: 0 days, minimum required: 10
+2025-10-19 01:50:06,224 - WARNING - Insufficient past data for AXISBANK on 2022-12-08: 0 days, minimum required: 10
+2025-10-19 01:50:06,226 - WARNING - Insufficient past data for AXISBANK on 2023-03-31: 0 days, minimum required: 10
+2025-10-19 01:50:06,228 - WARNING - Insufficient past data for AXISBANK on 2023-04-17: 0 days, minimum required: 10
+2025-10-19 01:50:06,229 - WARNING - Insufficient past data for AXISBANK on 2023-04-25: 0 days, minimum required: 10
+2025-10-19 01:50:06,231 - WARNING - Insufficient past data for AXISBANK on 2023-05-05: 0 days, minimum required: 10
+2025-10-19 01:50:06,234 - WARNING - Insufficient past data for AXISBANK on 2023-05-12: 0 days, minimum required: 10
+2025-10-19 01:50:06,236 - WARNING - Insufficient past data for AXISBANK on 2023-06-05: 0 days, minimum required: 10
+2025-10-19 01:50:06,238 - WARNING - Insufficient past data for AXISBANK on 2023-06-07: 0 days, minimum required: 10
+2025-10-19 01:50:06,240 - WARNING - Insufficient past data for AXISBANK on 2023-07-18: 0 days, minimum required: 10
+2025-10-19 01:50:06,244 - WARNING - Insufficient past data for AXISBANK on 2023-08-23: 0 days, minimum required: 10
+2025-10-19 01:50:06,246 - WARNING - Insufficient past data for AXISBANK on 2023-08-24: 0 days, minimum required: 10
+2025-10-19 01:50:06,248 - WARNING - Insufficient past data for AXISBANK on 2023-09-11: 0 days, minimum required: 10
+2025-10-19 01:50:06,249 - WARNING - Insufficient past data for AXISBANK on 2023-09-12: 0 days, minimum required: 10
+2025-10-19 01:50:06,251 - WARNING - Insufficient past data for AXISBANK on 2023-10-27: 0 days, minimum required: 10
+2025-10-19 01:50:06,253 - WARNING - Insufficient past data for AXISBANK on 2023-11-06: 0 days, minimum required: 10
+2025-10-19 01:50:06,255 - WARNING - Insufficient past data for AXISBANK on 2023-11-29: 0 days, minimum required: 10
+2025-10-19 01:50:06,256 - WARNING - Insufficient past data for AXISBANK on 2023-11-30: 0 days, minimum required: 10
+2025-10-19 01:50:06,258 - WARNING - Insufficient past data for AXISBANK on 2023-12-04: 0 days, minimum required: 10
+2025-10-19 01:50:06,260 - WARNING - Insufficient past data for AXISBANK on 2023-12-05: 0 days, minimum required: 10
+2025-10-19 01:50:06,261 - WARNING - Insufficient past data for AXISBANK on 2024-04-25: 0 days, minimum required: 10
+2025-10-19 01:50:06,263 - WARNING - Insufficient past data for AXISBANK on 2024-06-03: 0 days, minimum required: 10
+2025-10-19 01:50:06,266 - WARNING - Insufficient past data for AXISBANK on 2024-06-19: 0 days, minimum required: 10
+2025-10-19 01:50:06,270 - WARNING - Insufficient past data for AXISBANK on 2024-06-25: 0 days, minimum required: 10
+2025-10-19 01:50:06,275 - WARNING - Insufficient past data for AXISBANK on 2024-07-12: 0 days, minimum required: 10
+2025-10-19 01:50:06,279 - WARNING - Insufficient past data for AXISBANK on 2024-10-18: 0 days, minimum required: 10
+2025-10-19 01:50:06,283 - WARNING - Insufficient past data for AXISBANK on 2024-10-25: 0 days, minimum required: 10
+2025-10-19 01:50:06,287 - WARNING - Insufficient past data for AXISBANK on 2025-02-01: 0 days, minimum required: 10
+2025-10-19 01:50:06,290 - WARNING - Insufficient past data for AXISBANK on 2025-03-17: 0 days, minimum required: 10
+2025-10-19 01:50:06,294 - WARNING - Insufficient past data for AXISBANK on 2025-03-18: 0 days, minimum required: 10
+2025-10-19 01:50:06,298 - WARNING - Insufficient past data for AXISBANK on 2025-03-24: 0 days, minimum required: 10
+2025-10-19 01:50:06,302 - WARNING - Insufficient past data for AXISBANK on 2025-04-15: 0 days, minimum required: 10
+2025-10-19 01:50:06,306 - WARNING - Insufficient past data for AXISBANK on 2025-04-16: 0 days, minimum required: 10
+2025-10-19 01:50:06,354 - WARNING - Insufficient past data for AXISBANK on 2025-04-17: 0 days, minimum required: 10
+2025-10-19 01:50:06,357 - WARNING - Insufficient past data for AXISBANK on 2025-04-21: 0 days, minimum required: 10
+2025-10-19 01:50:06,366 - WARNING - Insufficient past data for AXISBANK on 2025-05-12: 0 days, minimum required: 10
+2025-10-19 01:50:06,368 - INFO - Filtered 0 valid trades after feature engineering
+2025-10-19 01:50:06,368 - ERROR - No valid trades after feature engineering. Stopping.
+2025-10-19 01:50:06,368 - INFO - Closing database connection

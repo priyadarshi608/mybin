@@ -1,0 +1,129 @@
+I need object oriented design with database design for the following:
+
+We have a building with several floors, and a single elevator that runs
+between them. Design a system to run this elevator, thinking about the
+objects/classes we'd need, their properties and methods, and the
+interaction between them.
+
+* Basics: Classes in the system include Elevator, Button, Doors and
+  some sort of controller object. The elevator has awareness of its
+  state and can react to a request.
+* Mechanics: The system includes awareness of the winch/hydraulic ram
+  that moves the elevator and some sort of detection of when an
+  elevator has arrived at a floor.
+* Request queue: The system can appropriately prioritize requests in
+  a queue (for up/down requests from each floor).
+* Special: The elevator could include a fire crew mode that overrides
+  everything, locked floors, weight limit, etc
+
+
+
+
+Door {
+	status // OPEN, CLOSE,
+
+	openTheDoor();
+	closeTheDoor();
+}
+
+Button {
+	isPressed;
+
+	setPressed();
+	resetPressed();
+}
+
+ElevatorButton {
+	ButtonPanel buttonPanel;
+	floorNo;
+
+	setStop() {
+	    setPressed();
+	    buttonPanel.buttonPressed(this);
+	}
+}
+
+FloorButton {
+	Floor floor;
+	Direction;
+
+	setStop() {
+	    setPressed();
+	    floor.callLift(this);
+	}
+}
+
+EmergencyButton {
+	setStop() {
+	    setPressed();
+	    buttonPanel.emergencyButtonPressed();
+	}
+}
+
+ButtonPanel {
+	Elevator elevator;
+	HashMap<floorNo, elevatorButton>;
+	EmergencyButton emergencyButton;
+	buttonPressed(elevatorButton) {
+	    elevator.addStop(elevatorButton, floorNo, FROM_INSIDE_LIFT);
+	}
+	emergencyButtonPressed() {
+	    elevator.addNearestStop();
+	}
+}
+
+Floor {
+	Scheduler scheduler;
+	int floorNo;
+	Door door;
+	FloorButton upwardFloorButton = new FloorButton(floorNo, UPWARD); // It will be null for top floor.
+	FloorButton downwardFloorButton = new FloorButton(floorNo, DOWNWARD); // It will be null for lowest floor.
+	callLift(FloorButton floorButton) {
+	    scheduler.callLift(floorNo, directionToGo);
+	}
+}
+
+StopDetails {
+	Floor floorToStop;
+	Button buttonWhichTellsSo;
+}
+
+Elevator {
+	int liftId;
+	isWorking;
+	status; // MOVING / STOPPED
+	direction; // MOVING_UP / MOVING_DOWN
+	currentFloorNo;
+	weight;
+	List<StopDetails> stopDetailsList; // Two types of addition in list. If command given from inside, insert at the position for sorted. If command given from outside, add at the end.
+	ButtonPanel buttonPanel;
+	Door door;
+	takeMeToFloor(liftId, toFloorNo);
+	isOverloaded();
+	addStop(elevatorButton, floorNo, commandType) {...};
+	addNearestStop() {...}
+	move() {...};
+}
+
+Scheduler {
+	List<Floor> floors;
+	Elevator elevator;
+	markElevatorWorking(elevatorId);
+	markElevatorNonWorking(elevatorId);
+	callLift(Button floorButton, floorNo, directionToGo) {...}
+}
+
+Schedular.callLift(Button floorButton, floorNo, directionToGo) {
+   elevator.addStop(floorButton, floorNo, FROM_OUTSIDE_LIFT);
+   if (elevator.status == STOPPED) {
+      elevator.move();
+   }
+}
+
+
+
+Button - buttonId, buttonType, floorNo, direction, isEmergency,
+ButtonPanel - buttonPanelId, buttonId,
+Door - doorId, doorParent, elevatorId, floorId,
+Elevator - elevatorId, buttonPanelId, doorId, weightLimit,
+Floor - floorId, upwardButtonId, downwardButtonId, doorId,

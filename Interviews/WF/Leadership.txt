@@ -1,0 +1,140 @@
+Can you share what draws you to Deutsche Telekom and how you feel Deutsche Telekom aligns with your career goals and aspirations?
+Deutsche Telekom's strong brand reputation and global presence are what initially drew me to the company. As a candidate, I am inspired by Deutsche Telekom's commitment to innovation and technological advancement within the telecommunications industry. I believe that Deutsche Telekom aligns perfectly with my career goals and aspirations, as I am eager to contribute to the company's mission of connecting people and enabling digital transformation. I am confident that with my skill set and experience, I can make a meaningful impact on Deutsche Telekom's growth and success.
+
+Can you describe the fundamental principles that serve as the foundation of engineering?
+Understanding and solving problems - analyzing complex problems, breaking them down into manageable components and devise effective solutions.
+Critical Thinking - Apply logical reasoning and critical thinking to evaluate options, make decisions, and anticipate potential challenges in the design and implementation of solutions.
+Creativity - It plays a pivotal role as engineers must think outside the box and devise innovative solutions.
+Precision - requiring meticulous attention to detail to ensure accuracy in design and implementation.
+Teamwork - is essential, as collaboration fosters diverse perspectives and enhances problem-solving abilities.
+Ethics - Engineers adhere to high ethical standards, ensuring the safety, reliability, and integrity of their work. This includes a commitment to sustainability and social responsibility.
+
+What if you were managing a team of star performers at Deutsche Telekom, and you noticed one person wasn't contributing as expected. Can you describe how you would go about addressing this issue and helping them improve?
+I would first approach the situation with empathy and curiosity. I would schedule a one-on-one meeting with the team member to understand their perspective and any underlying challenges they may be facing.
+During the meeting, I would actively listen and encourage open communication. I would provide specific examples of their performance gaps while ensuring they feel acknowledged for their strengths. Together, we would establish clear and measurable performance goals that align with the team's objectives and the individual's career aspirations.
+To support their improvement, I would create a tailored development plan that includes providing additional training or resources, assigning a mentor or coach, or offering opportunities for them to work closely with high-performing team members. Regular check-ins would be essential to provide feedback, track progress, and address any obstacles that arise.
+Furthermore, I would foster a positive and collaborative team environment where everyone feels motivated to excel. Encouraging teamwork, recognizing and rewarding individual and collective achievements, and creating open channels of communication would be integral to driving engagement and ensuring the team member feels supported throughout their improvement journey.
+
+Can you tell me about the type of feedback you previously receive from a cross-functional peer?
+In my previous role, I received feedback from my cross-functional peers that highlighted my ability to collaborate effectively with various teams. They commended my strong communication skills and my willingness to listen and understand different perspectives. They appreciated my proactive approach and my ability to adapt quickly to changing priorities. Overall, the feedback I received from my cross-functional peers was positive and emphasized my ability to work well with others to achieve common goals.
+
+What tools and technologies do you use to support remote management and communication with your team?
+Microsoft teams for communication,
+Jira for Project Management,
+Git for Version control and code collaboration,
+Microsoft 365 for collaborative document editing and sharing,
+Miro for whiteboarding,
+draw.io for architecture and system design,
+VPN for remote access,
+
+How do you balance the priorities of developing new features and managing technical debt?
+It depends on situation and demand of the project. In ICAT,
+- quick delivery over technical debt - sequential processing of the line items,
+- technical debt over quick delivery - sending upstream line item in batches,
+
+Tell me about a time when you took a risk that was outside of your comfort zone.
+Started looking into MAAS and WMS as well along with ICAT.
+
+Can you give an example of a professional development program or initiative that you have implemented for your team?
+Used to do career discussions and managed career development plan of the team members as well.
+
+Can you discuss your process for planning team size and skill set mix and how it has evolved over time as you managed more people?
+analyzing the objectives and requirements of the project or organization.
+evaluate the strengths and weaknesses of the existing team members.
+When I started handling multiple teams, I had more options to restructure my team and I had pulled Medha from ICAT into WMS as a more senior person was required in WMS and I moved one junior resource in ICAT (as it already had many senior people).
+
+Can you give us a summary of what you like and dislike about your current role and what changes you would make if possible?
+I absolutely loved the autonomy and responsibility of my current role. It allows me to take ownership of projects and make independent decisions. However, I do find myself wishing for more collaboration in product planning. As it was an external project, we had a lesser say over its requirements.
+I was able to make a better contribution in product planning in MAAS and WMS.
+
+Can you tell us about your immediate goals, and how they fit into your broader career plans?
+My immediate goal for the next 6 months to 1 year is twofold. Firstly, I am focused on obtaining PMP certification to further solidify my project management skills. This certification aligns with my commitment to delivering successful projects and enhances my ability to lead and execute initiatives efficiently.
+Simultaneously, I plan to enroll in a comprehensive course on artificial intelligence (AI). This aligns with my broader career aspiration to delve deeper into emerging technologies and leverage AI to drive innovation within my projects. The AI course will equip me with the knowledge and skills necessary to integrate cutting-edge technologies into project management practices, ensuring that I stay at the forefront of industry advancements.
+
+Can you recount a situation where you felt strongly about a certain decision, but still had to comply with instructions or guidelines from a senior leader? How would you handle it if this were to happen at some point in Deutsche Telekom?
+In a previous role, I faced a situation where I strongly believed that a decision made by a senior leader was not in the best interest of the team or the organization. However, as a professional, I understand the importance of compliance and following instructions or guidelines from senior leaders.
+To handle such a situation at Deutsche Telekom, I would first ensure that I have a thorough understanding of the decision and the reasoning behind it. I would then gather all the relevant information and data to support my concerns and alternative recommendations.
+I would then request a meeting or a discussion with the senior leader to respectfully present my viewpoint. I would highlight the potential risks and benefits of both approaches and how my proposed alternative aligns better with the organization's goals and values.
+During the discussion, I would actively listen to the senior leader's perspective, acknowledge their expertise and experience, and demonstrate my commitment to the organization's success. I would maintain a positive and solution-oriented attitude throughout the conversation.
+If, after the discussion, the senior leader still insists on their decision, I would accept it gracefully and fully commit to implementing their instructions. I would channel my energy into ensuring the successful execution of their decision and be open to learning from the experience.
+In the end, my priority is to contribute to the success of Deutsche Telekom and maintain a collaborative and professional relationship with my superiors. I believe in constructive communication, respect for authority, and the power of teamwork to drive positive change within an organization.
+
+What factors lead you to decide to advance a coworker in your group?
+When considering the advancement of a coworker in my group, I would prioritize their performance, leadership potential, commitment to growth, and ability to collaborate effectively. By promoting individuals who demonstrate these qualities, we can foster a culture of excellence and drive the success of the team and organization.
+
+Can you give us an insight into your hiring philosophy and what values you adhere to when evaluating candidates? Would these be the same at Deutsche Telekom?
+My hiring philosophy revolves around some of the core values:
+Competence - I firmly believe that a strong skillset is crucial for success in any role. So the candidate should have knowledge in the core areas.
+Problem-Solving and Critical Thinking - Today we have such a vast range of technologies available that no-one can have expertize in all the areas required for any role. Some people get chance to work on some technologies but may not get chance to work upon others. But what is most important is problem-solving ability and critical thinking. Technologies can be taught but the candidate should have the problem-solving ability and critical thinking.
+Cultural fittment - It's crucial that candidates align with the organization's culture and values. I look for individuals who demonstrate a collaborative mindset, adaptability, and a commitment to the company's mission and goals.
+As for Deutsche Telekom, I would align my hiring philosophy with the company's values and culture.
+
+Service Level Agreements:
+- between a service provider and a customer,
+- Agreement that outlines the expected level of service, performance, and responsibilities.
+Key components of an SLA typically include: Service Scope, Service Level Objectives, Responsibilities, Performance Metrics, Penalties and Remedies, Reporting and Communication,
+Service Scope: Clearly defines the scope of the services covered by the agreement.
+Service Level Objectives (SLOs): Specifies measurable performance targets, such as response times, uptime percentages, and resolution times.
+Responsibilities: Outlines the roles and responsibilities of both the service provider and the customer.
+Performance Metrics: Defines the metrics used to assess and measure the service provider's performance.
+Penalties and Remedies: Describes any penalties for failing to meet the agreed-upon service levels and outlines remedies or compensation.
+Reporting and Communication: Details how and when performance reports will be provided and the communication channels for issue resolution.
+
+How do you set the SLO threshold for errors and what considerations go into it?
+The Service Level Objective (SLO) threshold for errors is a predefined performance target that specifies the acceptable level of errors or failures in a service. For example - SLO threshold of errors for clm integration was 0.1 % means more than 0.1% of contracts should not have failed during sending it via CLM integration.
+To set the SLO threshold, the most important thing which we see is the impact of the error.
+
+Describe a situation where you had to work with a colleague you didn't get along with to complete a project.
+I didn't have such a experience with a colleague but with one of our client or service owner in ICAT. He was a very challenging person to deal with. When ICAT came under my management, at the same time there was a change in service ownership at Unilever end as well. Initially, he didn't have trust on our team. It took some time but I made my brand value and company's brand value that we stood by our commitments.
+
+Can you give an example of a time when you had to lead a team through a reorganization and how did you handle it? What were some of your key learnings from the experience?
+I naturally became manager of ICAT without a formal promotion after the resignation of Brij. Initially it was quite challenging for me as service owner was also changed at Unilever side and he was a very difficult client to deal with.
+
+Can you share an experience when your team's performance didn't match your expectations?
+During my initial days in WMS, it took around 6 months to reduce the number of support tickets by 70%. My expectation was that we will be able to do so in one quarter. But as we were rolling down many new business features as well, it took that much time.
+
+Can you give an example of a time when you were dissatisfied with your performance evaluation?
+After handling ICAT with all great performances, I got the promotion but didn't get percentage hike as per my expectation. Instead company provided me ESOPs, but I was expecting more in percentage hike. At that time, I was dissatisfied with my performance evaluation.
+
+Can you give an example of when you had to motivate your team to overcome obstacles?
+During Origin project, I motivated my team that we have to prove ourselves. I lead this by example. I contributed significantly in user stories completion and showed my team that I am going extra mile as well to make this successful. Team also put effort and it was a great success (as there was no post production bug in 200 MD effort project). We made our brand value to our customer by the success of this project.
+
+How do you adjust your communication style to meet the needs of different people you work with?
+I adjust my communication style by first understanding the individual's preferred method of communication, whether it's written, verbal, or visual. I also take into consideration their personality traits and their level of knowledge or expertise. I adapt my language and level of detail accordingly, ensuring that I provide information in a way that resonates with them. Additionally, I actively listen to their concerns and needs, and address them in a manner that is respectful and empathetic. By being flexible and responsive in my communication style, I aim to create a positive and effective exchange of information with everyone I work with.
+
+Could you share an obstacle you had to overcome in your career and what you took away from it? How could these insights inform your work at Deutsche Telekom?
+During Origin project, we were not able to hire new resources. My take away was to be honest with your work and stake holders and that's how I built trust with the client.
+
+How will you gain the trust of your peers and stakeholders once you join Deutsche Telekom? What are some mechanisms that have worked for you previously?
+Building trust is a continuous process that requires proactive communication, reliability, accountability, and a genuine desire to understand and support the needs of others. I am confident that by employing these mechanisms, I will be able to quickly gain the trust of my peers and stakeholders at Deutsche Telekom.
+
+What do you believe are the key components of a successful engineering organization?
+Technical ability,
+collaboration,
+effective communication,
+a culture of innovation,
+a commitment to quality,
+
+Can you walk us through a time when you had to learn something new for a job? How did you go about it and what could this experience bring to your role as an EM at Deutsche Telekom?
+Learned how to implement SSO, SAML and JWT for ICAT. These security practices are actually the best security standards and can be helpful at Deutsche Telekom as well.
+
+Can you give me a recent instance where you received criticism and how you dealt with it?
+It was during one-on-one with my other team mates (dev-ops people) where I received constructive criticism from a colleague that some of the times I include them in some discussion which are not relevant to them and it feels their time wasted. Initially, I took a moment to reflect on their feedback and considered its validity. Recognizing the room for improvement. After that I became more concious about other's time as well and used to tell people to drop from the meeting if I used to feel that they are not required anymore in the meeting.
+
+How do you handle objections or pushback from your team when it comes to technology selection?
+I approach objections or pushback from my team regarding technology selection with open-mindedness, empathy, and strategic communication. I believe in creating an environment where everyone's opinions are valued and heard. To address objections, I actively listen to understand their concerns and perspectives. I then discuss the rationale behind the technology selection, highlighting its benefits and how it aligns with our goals. I emphasize transparency, providing evidence and data to support my decision. If necessary, I am willing to reassess and consider alternative options. By fostering collaboration, building consensus, and clearly articulating the reasoning behind technology choices, I am confident in my ability to address objections effectively and ensure the team's buy-in.
+
+Have you ever faced a situation where a decision you made didn't have the desired outcome? What steps did you take to recover from it, and what did you learn?
+CLM integration log saving in mysql issue. This experience taught me to be more cautious about changes and do more comprehensive testing (including stress testing as well which we had ignored).
+
+Have you ever been in a situation where you had to give up something to reach a mutual agreement?
+In December, when client felt that the product is quite stable and one of our dev-ops resigned, the service owner asked us not to take his replacement. He wanted to reduce one resource from the team (particularly resources related to service maintenance). I didn't like this idea because it was a profit loss for the company. But after some discussion, I trained application support engineers to take some of the dev-ops things and gave up on this to reach a mutual agreement.
+
+Tell me about a situation when you had to reject a deliverable produced by your team.
+Greengst earlier version.
+
+How have you made efforts to further your own professional development in the last five years? How does Deutsche Telekom feed into your narrative?
+When I was tech lead and I started handling all works related to ICAT, I talked to my manager that I want to be EM. What is the criteria for that?
+He told me to stabilize the project and team and earn trust with the client. In the first year, I totally focused on it and we built such a great repo with the client that we got projects of worth 100 million INR from the client back to back.
+Then after my promotion, I talked to my manager and asked that how will I be promoted to director level. He told me the criteria that I should look into multiple projects. Then I started looking into MAAS and then WMS as well.
+Deutsche Telekom perfectly aligns with my career aspirations and the efforts I have made in professional development. As a global leader in telecommunications, the company offers unparalleled opportunities for growth and learning. I am eager to contribute my knowledge and skills while being exposed to the cutting-edge technologies and innovative solutions that Deutsche Telekom offers.

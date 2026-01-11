@@ -1,0 +1,25 @@
+STOP AND SUSPEND:
+while (!stop___) {
+	while (suspend___) {
+		try {
+			synchronized (this) {
+				wait();
+			}
+		} catch (InterruptedException e) {
+			throw new RuntimeException("InterruptedException in the suspended state of the ___. The stack traces is: " + e);
+		}
+	}
+}
+
+SET AND RESET SUSPEND AND STOP:
+public void stop___() {
+	this.stop___ = true;
+}
+public void suspend___() {
+	this.suspend___ = true;
+}
+synchronized public void resumeLogger() {
+	this.suspend___ = false;
+	notify();
+}
+

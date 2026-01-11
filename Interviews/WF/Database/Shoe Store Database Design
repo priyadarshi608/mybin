@@ -1,0 +1,188 @@
+A shoe store owner, with just one shoe store, who sells shoes and nothing but shoes, wants to design a DB schema. The owner is getting annoyed by having to search and check the shoes each and every time customer comes. Can you please design a shoe shore DB schema for the owner?
+Specific requirements: brand, color and size.
+There should be price and stock columns.
+* Shoe owner should have a facility to give a discount.
+* Customer comes and wants to buy multiple shoes at once. He should be able to do it.
+* If a customer wants to return a shoe, I should be able to find that how much money I need to give back.
+
+------------------------------------------------------------------------------------
+
+Shoe - id, modelName, brand, color, size, price, discountPercentage, stock,
+Transactions - TransactionID, TransactionTimestamp, totalAmount,
+TransactionDetails - TransactionDetailID, TransactionID, ShoeID, Quantity, unitPrice, discountPercentage, subTotalAmount,
+
+Here, unitPrice and discountPercentage in TransactionDetails table are basically the price and discount of shoe at the time of transaction. Shoe table just have the price and discount of a shoe at any given point of time. We can have another table named ShoePriceHistory where we can create an entry for any change in price or discount of a shoe.
+ShoePriceHistory - id, shoeId, timestamp, price, discountPercentage,
+
+There can be multiple approaches to store the data of Shoe table:
+
+Approach 1:
+Shoe - id, modelName, brand, color, size, price, discountPercentage, stock,
+
+HERE ACTUALLY DATA IS DENORMALIZED.
+
+PROS - Simpler and requires fewer tables, More Intutive and Readable,
+CONS - Redundancy, Maintenance, Consistency,
+Redundancy - redundancy in data storage, as the same brand, color, and size information is repeated for each shoe
+Maintenance - If you need to update a brand, color, or size, you would need to update multiple rows, leading to potential maintenance challenges.
+Consistency - Ensuring consistency in data (e.g., making sure the same brand is spelled the same way across all rows) can be challenging.
+
+This approach may be suitable for smaller data set.
+
+Approach 2:
+
+Shoe - id, modelNameId, brandId, colorId, sizeId, price, discountPercentage, stock,
+ModelName - id, name, description, - index on name is good to have.
+Brand - id, name, description, - index on name is good to have.
+Color - id, name, description, - index on name is good to have.
+Size - id, name, description, - index on name is good to have.
+
+HERE DATA IS NORMALIZED.
+PROS - improved data consistency and integrity as data is normalized, comparatively easier maintenance,
+CONS - Schema more complex, multiple joins will be required to read the data, less intutive and difficult to read,
+
+If data set is large, we should use this approach for easier maintenance and data consistency.
+
+Approach 3:
+Shoe - id, price, stock,
+ShoeAttribute - id, name,
+ShoeAttributeValue - id, shoeId, shoeAttributeId, value,
+
+PROS - more scalable when there is a need to accommodate a variable set of attributes without altering the schema.
+CONS - complex queries with multiple joins, no inherent control over which attributes are associated with a shoe and it relies heavily on application logic so enforcing data integrity and consistency becomes more challenging, not intutive and difficult to read, difficult to maintain,
+
+Honestly, in place of using this approach in SQL, I will think of using NOSQL like MongoDB if I really need scalability for new attributes.
+
+SO ACCORDING TO ME, BEST APPROACH IS APPROACH 2. INFACT WE SHOULD SEPARATE INVENTORY TABLE AS WELL TO MAKE THE DESIGN MORE SCALABLE. SO MY FINAL SCHEMA WILL BE:
+
+Shoe - id, modelNameId, brandId, colorId, sizeId, price, discountPercentage,
+// Here probably we should add index on discountPercentage column as many people tries to find item with maximum discount.
+
+ModelName - id, name, description,
+Brand - id, name, description,
+Color - id, name, description,
+Size - id, name, description,
+
+Inventory - id, shoeId, stock,
+
+Transactions - TransactionID, TransactionTimestamp,
+// Transactions - TransactionID, TransactionTimestamp, totalAmount, - We should not store totalAmount in this table.
+TransactionDetails - TransactionDetailID, TransactionID, ShoeID, Quantity, unitPrice, discountPercentage, subTotalAmount,
+
+ShoePriceHistory - id, shoeId, timestamp, price, discountPercentage,
+
+If we also need to support shoe return, then we can add two columns ( returnedQuantity and amountReturned) in TransactionDetails table. Add these columns only if interviewer tells that he also needs return functionality.
+
+====================================================================================
+
+Sometimes 2 customers come and want to buy the same shoe, but one gets the price of $60 and the other $80? Why is that?
+
+------------------------------------------------------------------------------------
+
+- Ask the interviewer that do we have different discounts for different customer as well. That can be one probable reason.
+- Or there can be price or discount update when second customer is trying to buy the shoe.
+- Or is there no any difference between color, size, brand or modelName. If there is no any difference then there can be multiple entries for this combination which is really a bad thing and we can have a unique constraint over this combination in the DB table.
+
+====================================================================================
+
+What is the price of Adidas, black, size 46?
+
+------------------------------------------------------------------------------------
+
+SELECT price
+FROM Shoe
+WHERE brandId = (SELECT id FROM Brand WHERE name = 'Adidas')
+  AND colorId = (SELECT id FROM Color WHERE name = 'black')
+  AND sizeId = (SELECT id FROM Size WHERE name = 46);
+
+====================================================================================
+
+Is Adidas, black, size 46 available?
+
+------------------------------------------------------------------------------------
+
+SELECT S.id
+FROM Shoe AS S
+JOIN Inventory AS I ON S.id = I.shoeId
+WHERE S.brandId = (SELECT id FROM Brand WHERE name = 'Adidas')
+  AND S.colorId = (SELECT id FROM Color WHERE name = 'black')
+  AND S.sizeId = (SELECT id FROM Size WHERE name = 46)
+  AND I.stock > 0;
+
+====================================================================================
+
+Get revenue we made last month.
+
+------------------------------------------------------------------------------------
+
+SELECT SUM(td.subTotalAmount) AS revenue_last_month
+FROM Transactions t
+WHERE 
+MONTH(t.TransactionTimestamp) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)
+AND YEAR(t.TransactionTimestamp) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH);
+
+====================================================================================
+
+Get all shoes (ids) with count how many we sold last month.
+
+------------------------------------------------------------------------------------
+
+SELECT 
+    td.ShoeID,
+    sum(td.quantity) AS sold_count_last_month
+FROM 
+    TransactionDetails td
+JOIN 
+    Transactions t ON td.TransactionID = t.TransactionID
+WHERE 
+    MONTH(t.TransactionTimestamp) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)
+    AND YEAR(t.TransactionTimestamp) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH)
+GROUP BY 
+    td.ShoeID;
+
+====================================================================================
+
+Get all shoes (ids) that were not sold last month.
+
+------------------------------------------------------------------------------------
+
+SELECT 
+    s.id AS ShoeID
+FROM 
+    Shoe s
+WHERE 
+    s.id NOT IN (
+        SELECT DISTINCT 
+            td.ShoeID
+        FROM 
+            TransactionDetails td
+        JOIN 
+            Transactions t ON td.TransactionID = t.TransactionID
+        WHERE 
+            MONTH(t.TransactionTimestamp) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)
+            AND YEAR(t.TransactionTimestamp) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH)
+    );
+
+====================================================================================
+
+Select top 10 shoes that were sold in last 3 months more than 100 times.
+
+------------------------------------------------------------------------------------
+
+SELECT 
+    td.ShoeID,
+    COUNT(*) AS sold_count_last_3_months
+FROM 
+    TransactionDetails td
+JOIN 
+    Transactions t ON td.TransactionID = t.TransactionID
+WHERE 
+    t.TransactionTimestamp >= (CURRENT_DATE - INTERVAL 3 MONTH)
+GROUP BY 
+    td.ShoeID
+HAVING 
+    sold_count_last_3_months > 100
+ORDER BY 
+    sold_count_last_3_months DESC
+LIMIT 10;
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-10-20T15:26:55</date>
+  <millis>1476957415248</millis>
+  <sequence>6</sequence>
+  <logger>LoggerExample</logger>
+  <level>INFO</level>
+  <class>LoggerExample</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Finnest message: Logger with DEFAULT FORMATTER</message>
+</record>
+Oct 20, 2016 3:26:55 PM LoggerExample main
+FINEST: Finnest message: Logger with SIMPLE FORMATTER

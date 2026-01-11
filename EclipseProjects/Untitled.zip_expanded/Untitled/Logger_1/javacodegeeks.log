@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-10-20T15:26:55</date>
+  <millis>1476957415244</millis>
+  <sequence>3</sequence>
+  <logger>LoggerExample</logger>
+  <level>CONFIG</level>
+  <class>LoggerExample</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Configuration done.</message>
+</record>
+<record>
+  <date>2016-10-20T15:26:55</date>
+  <millis>1476957415247</millis>
+  <sequence>4</sequence>
+  <logger>LoggerExample</logger>
+  <level>FINE</level>
+  <class>LoggerExample</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Finer logged</message>
+</record>
+<record>
+  <date>2016-10-20T15:26:55</date>
+  <millis>1476957415247</millis>
+  <sequence>5</sequence>
+  <logger>LoggerExample</logger>
+  <level>FINER</level>
+  <class>LoggerExample</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Finest example on LOGGER handler completed.</message>
+</record>
+<record>
+  <date>2016-10-20T15:26:55</date>
+  <millis>1476957415248</millis>
+  <sequence>6</sequence>
+  <logger>LoggerExample</logger>
+  <level>INFO</level>
+  <class>LoggerExample</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Finnest message: Logger with DEFAULT FORMATTER</message>
+</record>
+<record>
+  <date>2016-10-20T15:26:55</date>
+  <millis>1476957415249</millis>
+  <sequence>7</sequence>
+  <logger>LoggerExample</logger>
+  <level>FINEST</level>
+  <class>LoggerExample</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Finnest message: Logger with SIMPLE FORMATTER</message>
+</record>
+</log>
